@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5a5cf4d68e4f1419cd68bab5b13eb7, type: 3}
+  m_Name: Final Totem
+  m_EditorClassIdentifier: 
+  m_name: Final Totem
+  m_availableAtStart: 1
+  m_icon: {fileID: 0}
+  m_recipeElements:
+  - m_item: {fileID: 11400000, guid: f2b1e1cec95a9c043919e7253cb20a28, type: 2}
+    m_quantity: 1
+  - m_item: {fileID: 11400000, guid: e29fc71f7f5f5c941a9927e324849218, type: 2}
+    m_quantity: 1
+  - m_item: {fileID: 11400000, guid: 99c715a41d3bad24694361fbf8065d5e, type: 2}
+    m_quantity: 1
+  - m_item: {fileID: 11400000, guid: ec55dd675464fb743b31096794171b44, type: 2}
+    m_quantity: 1
+  m_produced: {fileID: 11400000, guid: bc0fad5f0b847e04785aae3c91d5eb19, type: 2}
