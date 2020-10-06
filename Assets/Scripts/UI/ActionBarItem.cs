@@ -18,6 +18,11 @@ public class ActionBarItem : MonoBehaviour
 		[SerializeField]
 		[Tooltip("The item that is stored in this action slot")]
 		private ScriptableObjects.Item m_item;
+
+		public ScriptableObjects.Item Item
+		{
+			get { return m_item; }
+		}
 		
 		private Image m_image;	//< The image that is used to display the item icon
 	
@@ -33,6 +38,11 @@ public class ActionBarItem : MonoBehaviour
 	public void SetItem(ScriptableObjects.Item item)
 	{
 		m_item = item;
+	}
+
+	public void RemoveItem()
+	{
+		m_item = null;
 	}
 
 	// Update is called once per frame

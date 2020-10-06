@@ -11,6 +11,7 @@ using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerControllerUI : MonoBehaviour
@@ -79,6 +80,11 @@ public class PlayerControllerUI : MonoBehaviour
 		{
 			Craft();
 		}
+
+		if (m_playerInput.actions["Drop"].triggered)
+		{
+			Drop();
+		}
 		
 		m_playerUI.SetHP(GetComponent<PlayerController>().CharacterPlayer.m_fCurrentHP, GetComponent<PlayerController>().CharacterPlayer.m_iMaxHP);
 	}
@@ -141,6 +147,11 @@ public class PlayerControllerUI : MonoBehaviour
 			m_canCraft = false;
 			Invoke(nameof(ResetCanCraftDirty), 0.4f);
 		}
+	}
+
+	public void Drop()
+	{
+		m_playerUI.Drop(transform.position + new Vector3(0.0f, 0.0f, 1.0f));
 	}
 
 	public void ResetCanCraftDirty()

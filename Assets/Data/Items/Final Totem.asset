@@ -15,5 +15,8 @@ MonoBehaviour:
   m_name: The Totem
   m_description: The great totem that will prevent the end of times
   m_type: 0
+  m_damage: 0
+  m_life: 0
   m_icon: {fileID: 21300000, guid: 4470e08f34c362443a4ad0939eef88cd, type: 3}
-  m_prefab: {fileID: 0}
+  m_prefab: {fileID: 7084209996807071916, guid: ebae1e0bf58735e49ab2c8f825378623,
+    type: 3}

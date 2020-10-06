@@ -283,4 +283,13 @@ public class PlayerUI : MonoBehaviour
 		}
 		
 	#endregion
+
+	public void Drop(Vector3 _pos)
+	{
+		ScriptableObjects.Item itm = EventSystem.current.currentSelectedGameObject.GetComponent<ActionBarSlot>()
+			.GetComponentInChildren<ActionBarItem>().Item;
+		PartyInventory.Instance.SpawnItem(itm.m_prefab, _pos, Quaternion.identity);
+		EventSystem.current.currentSelectedGameObject.GetComponent<ActionBarSlot>()
+			.GetComponentInChildren<ActionBarItem>().RemoveItem();
+	}
 }

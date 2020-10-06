@@ -11,6 +11,7 @@ using Mirror;
 using ScriptableObjects;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
@@ -132,6 +133,13 @@ public class PartyInventory : NetworkBehaviour
 			m_resources[_creditedItemName] = 0;
 		}
 	}
+	
+	[Command(ignoreAuthority = true)]
+	public void SpawnItem(GameObject _object, Vector3 _position, Quaternion _rotation)
+	{
+		GameObject newCharacterObject = Instantiate(_object, _position, _rotation);
+		NetworkServer.Spawn(newCharacterObject);
+	}
 
 	/// <summary>
 	/// Return true if the given blueprint is unlocked
@@ -189,6 +197,8 @@ public class PartyInventory : NetworkBehaviour
 		return true;
 	}
 
+	public List<ScriptableObjects.Item> m_creditableItems;
+	
 	private void OnGUI()
 	{
 		// if (GUILayout.Button("Go !"))
@@ -210,5 +220,15 @@ public class PartyInventory : NetworkBehaviour
 		// {
 		// 	CreditResource(m_tmpRock, 3);
 		// }
+
+		foreach (var creditableItem in m_creditableItems)
+		{
+			//
+			//
+			if (GUILayout.Button("Credit : " + creditableItem.m_name))
+			{
+				CreditResource(creditableItem, 1);
+			}
+		}
 	}
 }
