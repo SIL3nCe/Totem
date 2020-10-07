@@ -1,4 +1,4 @@
-# LD47-LaPantera
+# Totem
  Souhait sur une roue.
 
 Invite your friends to help you crafting the TOTEM.
