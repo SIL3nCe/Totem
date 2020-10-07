@@ -83,6 +83,7 @@ MonoBehaviour:
   - {fileID: 8814004972467976107, guid: a0239d1e660423f489b06ba52354f1bc, type: 3}
   - {fileID: 8814004972467976107, guid: c97598cda4854e24b89d03b238559381, type: 3}
   - {fileID: 8814004972467976107, guid: 9f069f7c164757a49b410d9f5827d1eb, type: 3}
+  - {fileID: 8814004972467976107, guid: b0c6a036ace408a49b74d150c450e730, type: 3}
   SeedIsInit: 0
   RandomSeed:
     s0: 0
