@@ -15,5 +15,7 @@ MonoBehaviour:
   m_name: Stone Pickaxe
   m_description: A stone pickaxe
   m_type: 0
+  m_damage: 8
+  m_life: 0
   m_icon: {fileID: 2599162288458550813, guid: eaae9e6d836151a4eb91550f49223083, type: 3}
   m_prefab: {fileID: 0}
