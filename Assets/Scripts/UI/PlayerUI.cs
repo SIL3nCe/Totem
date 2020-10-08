@@ -288,7 +288,10 @@ public class PlayerUI : MonoBehaviour
 	{
 		ScriptableObjects.Item itm = EventSystem.current.currentSelectedGameObject.GetComponent<ActionBarSlot>()
 			.GetComponentInChildren<ActionBarItem>().Item;
-		PartyInventory.Instance.SpawnItem(itm.m_prefab, _pos, Quaternion.identity);
+		
+		PartyInventory.Instance.SpawnItem(itm.m_prefab, _pos + new Vector3(0.0f, 0.0f, 4.0f), Quaternion.Euler(0.0f, -180.0f, 0.0f));
+		
+		
 		EventSystem.current.currentSelectedGameObject.GetComponent<ActionBarSlot>()
 			.GetComponentInChildren<ActionBarItem>().RemoveItem();
 	}

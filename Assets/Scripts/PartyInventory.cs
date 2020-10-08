@@ -134,7 +134,6 @@ public class PartyInventory : NetworkBehaviour
 		}
 	}
 	
-	[Command(ignoreAuthority = true)]
 	public void SpawnItem(GameObject _object, Vector3 _position, Quaternion _rotation)
 	{
 		GameObject newCharacterObject = Instantiate(_object, _position, _rotation);
