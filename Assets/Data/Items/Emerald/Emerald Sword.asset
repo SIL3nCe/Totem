@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: Emerald Sword
   m_description: An emerald sword
-  m_type: 0
+  m_type: 2
   m_damage: 15
   m_life: 0
   m_icon: {fileID: -2940232955826608074, guid: eaae9e6d836151a4eb91550f49223083, type: 3}

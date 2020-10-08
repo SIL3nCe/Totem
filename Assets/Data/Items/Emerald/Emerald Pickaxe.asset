@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: Emerald Pickaxe
   m_description: An emerald pickaxe
-  m_type: 0
+  m_type: 2
   m_damage: 15
   m_life: 0
   m_icon: {fileID: -3178300661473936600, guid: eaae9e6d836151a4eb91550f49223083, type: 3}

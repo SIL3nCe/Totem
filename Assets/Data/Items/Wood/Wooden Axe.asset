@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: Wooden Axe
   m_description: A wooden axe
-  m_type: 0
+  m_type: 2
   m_damage: 5
   m_life: 0
   m_icon: {fileID: 8449178401926207585, guid: eaae9e6d836151a4eb91550f49223083, type: 3}
-  m_prefab: {fileID: 0}
+  m_prefab: {fileID: 8814004972467976107, guid: 1445855dd6e0ac64f8ee19e841b312a7,
+    type: 3}

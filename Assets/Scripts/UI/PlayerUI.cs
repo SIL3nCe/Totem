@@ -224,7 +224,7 @@ public class PlayerUI : MonoBehaviour
 			m_currentState = _newState;
 		}
 
-		public void Craft()
+		public void Craft(Vector3 _playerPosition)
 		{
 			//
 			// Retrieve the currently selected blueprint
@@ -258,6 +258,7 @@ public class PlayerUI : MonoBehaviour
 			
 			//
 			// Now the recipe elements have been uncredited, there are two solutions
+			// First we check if the 
 			// Solution 1 : The player still have available slots in its action bar, int this case we simply add the result item in the action bar
 			// in the first available slot
 			// Solution 2 : The player don't have available slots in its action bar, in this case we spawn the object at the player's feet
@@ -270,6 +271,7 @@ public class PlayerUI : MonoBehaviour
 			}
 			else
 			{
+				DropCurrentlySelectedItem(_playerPosition, Quaternion.identity);
 				// TODO: Spawn at the right position
 				blueprint.Product.Spawn(Vector3.zero);
 			}
@@ -284,15 +286,19 @@ public class PlayerUI : MonoBehaviour
 		
 	#endregion
 
-	public void Drop(Vector3 _pos)
+	public void DropCurrentlySelectedItem(Vector3 _position, Quaternion _quaternion)
 	{
 		ScriptableObjects.Item itm = EventSystem.current.currentSelectedGameObject.GetComponent<ActionBarSlot>()
 			.GetComponentInChildren<ActionBarItem>().Item;
-		
-		PartyInventory.Instance.SpawnItem(itm.m_prefab, _pos + new Vector3(0.0f, 0.0f, 4.0f), Quaternion.Euler(0.0f, -180.0f, 0.0f));
-		
+
+		DropItem(itm, _position, _quaternion);
 		
 		EventSystem.current.currentSelectedGameObject.GetComponent<ActionBarSlot>()
 			.GetComponentInChildren<ActionBarItem>().RemoveItem();
+	}
+
+	public void DropItem(ScriptableObjects.Item _item, Vector3 _position, Quaternion _quaternion)
+	{
+		PartyInventory.Instance.SpawnItem(_item.m_prefab, _position, _quaternion);
 	}
 }

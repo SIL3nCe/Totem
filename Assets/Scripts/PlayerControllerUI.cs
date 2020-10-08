@@ -143,7 +143,7 @@ public class PlayerControllerUI : MonoBehaviour
 	{
 		if (m_canCraft)
 		{
-			m_playerUI.Craft();
+			m_playerUI.Craft(transform.position + transform.forward * 2.0f);
 			m_canCraft = false;
 			Invoke(nameof(ResetCanCraftDirty), 0.4f);
 		}
@@ -151,7 +151,7 @@ public class PlayerControllerUI : MonoBehaviour
 
 	public void Drop()
 	{
-		m_playerUI.Drop(transform.position + new Vector3(0.0f, 0.0f, 1.0f));
+		m_playerUI.DropCurrentlySelectedItem(transform.position + new Vector3(0.0f, 0.0f, 4.0f), Quaternion.Euler(0.0f, 0.0f, -180.0f));
 	}
 
 	public void ResetCanCraftDirty()

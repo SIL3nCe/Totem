@@ -15,6 +15,8 @@ MonoBehaviour:
   m_name: Emerald
   m_description: A green emerald
   m_type: 0
+  m_damage: 0
+  m_life: 0
   m_icon: {fileID: -93006566689803346, guid: eaae9e6d836151a4eb91550f49223083, type: 3}
   m_prefab: {fileID: 8679482770784958593, guid: 64fc7c568ee8a4d44ab53ff2c225bd81,
     type: 3}

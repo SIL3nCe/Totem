@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: Wooden Sword
   m_description: A wooden sword
-  m_type: 0
+  m_type: 2
   m_damage: 5
   m_life: 0
   m_icon: {fileID: 4007610613663647153, guid: eaae9e6d836151a4eb91550f49223083, type: 3}
-  m_prefab: {fileID: 0}
+  m_prefab: {fileID: 8814004972467976107, guid: b0c6a036ace408a49b74d150c450e730,
+    type: 3}

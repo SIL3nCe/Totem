@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: Wooden Pickaxe
   m_description: A wooden pickaxe
-  m_type: 0
+  m_type: 2
   m_damage: 5
   m_life: 0
   m_icon: {fileID: -4065731190136991531, guid: eaae9e6d836151a4eb91550f49223083, type: 3}
-  m_prefab: {fileID: 0}
+  m_prefab: {fileID: 8814004972467976107, guid: a0239d1e660423f489b06ba52354f1bc,
+    type: 3}
