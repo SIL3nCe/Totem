@@ -23,8 +23,17 @@ public class InteractableResource : NetworkBehaviour
     }
     
     [Command(ignoreAuthority = true)]
-    public void CmdGather(int damage)
+    public void CmdGather(int itemDamage, ScriptableObjects.Item.WeaponType weaponType)
     {
+        int damage = 1;
+
+        if (resourceDescriptor.m_resourceType == ScriptableObjects.Item.ResourceType.wood && weaponType == ScriptableObjects.Item.WeaponType.axe        ||
+            resourceDescriptor.m_resourceType == ScriptableObjects.Item.ResourceType.stone && weaponType == ScriptableObjects.Item.WeaponType.pickaxe   ||
+            resourceDescriptor.m_resourceType == ScriptableObjects.Item.ResourceType.emerald && weaponType == ScriptableObjects.Item.WeaponType.pickaxe   )
+        {
+            damage = itemDamage;        
+        }
+
         currentLife -= damage;
 
         if (currentLife <= 0)
@@ -56,11 +65,11 @@ public class InteractableResource : NetworkBehaviour
 
         PlayerController playerController = item.GetComponentInParent<PlayerController>();
 
-        if (playerController == null || !playerController.isLocalPlayer)
+        if (playerController == null || !playerController.isLocalPlayer || item.m_item.m_type != ScriptableObjects.Item.Type.weapon)
         {
             return;
         }
         
-        CmdGather(item.m_item.m_damage);
+        CmdGather(item.m_item.m_damage, item.m_item.m_weaponType);
     }
 }

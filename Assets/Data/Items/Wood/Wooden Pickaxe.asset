@@ -15,6 +15,7 @@ MonoBehaviour:
   m_name: Wooden Pickaxe
   m_description: A wooden pickaxe
   m_type: 2
+  m_weaponType: 2
   m_damage: 5
   m_life: 0
   m_icon: {fileID: -4065731190136991531, guid: eaae9e6d836151a4eb91550f49223083, type: 3}

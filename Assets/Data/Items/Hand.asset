@@ -15,6 +15,7 @@ MonoBehaviour:
   m_name: Hand
   m_description: An hand
   m_type: 2
+  m_weaponType: 3
   m_damage: 1
   m_life: 0
   m_icon: {fileID: 21300000, guid: b931587800e08c54aa8dbbd6c15c894f, type: 3}
