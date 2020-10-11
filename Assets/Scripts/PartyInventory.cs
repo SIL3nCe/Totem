@@ -101,11 +101,6 @@ public class PartyInventory : NetworkBehaviour
 	{
 		m_monInteger = 0;
 	}
-
-	// Update is called once per frame
-	void Update()
-	{
-	}
 	
 	/// <summary>
 	/// Credit (add) the given amount of the given resources to the party invenntory

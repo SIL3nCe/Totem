@@ -15,12 +15,6 @@ public class InteractableResource : NetworkBehaviour
     {
         currentLife = resourceDescriptor.m_life;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     [Command(ignoreAuthority = true)]
     public void CmdGather(int itemDamage, ScriptableObjects.Item.WeaponType weaponType)

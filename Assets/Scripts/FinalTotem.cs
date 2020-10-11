@@ -10,12 +10,6 @@ public class FinalTotem : MonoBehaviour
 		Invoke(nameof(StartLight), 1.0f);
 	}
 
-	// Update is called once per frame
-	void Update()
-	{
-		
-	}
-
 	public void StartLight()
 	{
 		var lights = GetComponentsInChildren<Light>();
@@ -23,6 +17,5 @@ public class FinalTotem : MonoBehaviour
 		{
 			light.enabled = true;
 		}
-
 	}
 }

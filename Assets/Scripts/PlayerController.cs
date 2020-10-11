@@ -83,7 +83,15 @@ public class PlayerController : NetworkBehaviour
 
         bInteracting = true;
         animator.SetBool("Interact", true);
-    }
+
+		// Rotate player to the click
+		//Vector2 vMiddleScreen = new Vector2(Camera.main.pixelWidth * 0.5f, Camera.main.pixelHeight * 0.5f);
+		//Vector2 vMouse = Mouse.current.position.ReadValue();
+		//
+		//float angle = Mathf.Atan2(vMouse.x - vMiddleScreen.x, vMouse.y - vMiddleScreen.y) * Mathf.Rad2Deg;
+		//
+		//rb.rotation = Quaternion.Euler(new Vector3(0.0f, angle, 0.0f));
+	}
 
 	[ClientRpc]
 	public void OnDeath()
@@ -136,40 +144,45 @@ public class PlayerController : NetworkBehaviour
 		{
 			float fSpeed = CharacterPlayer.GetCurrentSpeed() * Time.deltaTime;
 
+			// Compute velocity based on inputs
 			rb.velocity = new Vector3(fHorizontal * fSpeed, rb.velocity.y, fVertical * fSpeed);
 
-			float fAngle = 0.0f;
-			if (fHorizontal >= 0.1f)
+			// if (!bInteracting) // Rotate player to the click
 			{
-				fAngle = 90.0f;
-				if (fVertical > 0.0f)
+				// Compute rotation based on inputs
+				float fAngle = 0.0f;
+				if (fHorizontal >= 0.1f)
 				{
-					fAngle -= 45.0f;
+					fAngle = 90.0f;
+					if (fVertical > 0.0f)
+					{
+						fAngle -= 45.0f;
+					}
+					else if (fVertical < -0.0f)
+					{
+						fAngle += 45.0f;
+					}
 				}
-				else if (fVertical < -0.0f)
+				else if (fHorizontal < -0.0f)
 				{
-					fAngle += 45.0f;
+					fAngle = -90.0f;
+					if (fVertical > 0.0f)
+					{
+						fAngle += 45.0f;
+					}
+					else if (fVertical < -0.0f)
+					{
+						fAngle -= 45.0f;
+					}
 				}
-			}
-			else if (fHorizontal < -0.0f)
-			{
-				fAngle = -90.0f;
-				if (fVertical > 0.0f)
+				else if (fVertical < 0.0f)
 				{
-					fAngle += 45.0f;
+					fAngle = -180.0f;
 				}
-				else if (fVertical < -0.0f)
-				{
-					fAngle -= 45.0f;
-				}
-			}
-			else if(fVertical < 0.0f)
-			{
-				fAngle = -180.0f;
-			}
 
-			Quaternion rota = Quaternion.identity;
-			transform.rotation = Quaternion.Euler(0.0f, fAngle, 0.0f);
+				Quaternion rota = Quaternion.identity;
+				transform.rotation = Quaternion.Euler(0.0f, fAngle, 0.0f);
+			}
 
 			bWalking = true;
 			animator.SetBool("Walking", true);
