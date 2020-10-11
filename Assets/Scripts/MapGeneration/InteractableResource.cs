@@ -8,12 +8,18 @@ public class InteractableResource : NetworkBehaviour
 {
     public ScriptableObjects.Item resourceDescriptor;
 
+    public GameObjectHealthBar HealthBar;
+
     private int currentLife;
 
     // Start is called before the first frame update
     void Start()
     {
         currentLife = resourceDescriptor.m_life;
+        if (HealthBar)
+        {
+            HealthBar.gameObject.SetActive(false);
+        }
     }
     
     [Command(ignoreAuthority = true)]
@@ -39,13 +45,25 @@ public class InteractableResource : NetworkBehaviour
                 NetworkServer.Spawn(spawnedObject);
             }
             
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
+        else if (HealthBar)
+        {
+            UpdateHealthBar(currentLife);
+        }
+    }
+
+    [ClientRpc]
+    public void UpdateHealthBar(int currLife)
+    {
+        HealthBar.gameObject.SetActive(true);
+        // Lerp in [0;max life]
+        HealthBar.SetLifeBarScale(currLife / (float)resourceDescriptor.m_life);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!GetComponent<NetworkIdentity>().isClient)
+        if (!isClient)
         {
             return;
         }
