@@ -54,6 +54,12 @@ public class PlayerController : NetworkBehaviour
 		GameObject.Find("Action Bar").GetComponent<ActionBar>().m_delegateActiveItemChanged += OnActionBarItemChanged;
 	}
 
+	[TargetRpc]
+	public void SetDeathCamTarget(GameObject DeathCamTarget)
+    {
+		Camera.main.gameObject.GetComponent<CameraManager>().PlayerTarget = DeathCamTarget.gameObject;
+	}
+
 	[Client]
 	public void OnMove(InputValue value)
 	{
@@ -98,6 +104,8 @@ public class PlayerController : NetworkBehaviour
     {
 		if (!hasAuthority || !isLocalPlayer)
 			return;
+
+		GetComponent<PlayerInput>().enabled = false;
 
 		rb.velocity = Vector3.zero;
 		animator.SetBool("Walking", false);

@@ -12,6 +12,9 @@ public class GameManager : NetworkBehaviour
 	[SyncVar]
 	public float LoopTime = 300.0f;
 
+	[SyncVar]
+	private float TimerMultiplier = 1.0f;
+
 	[Server]
 	void Start()
 	{
@@ -21,12 +24,19 @@ public class GameManager : NetworkBehaviour
 	[Server]
 	void Update()
 	{
-		LoopTime -= Time.deltaTime;
+		LoopTime -= Time.deltaTime * TimerMultiplier;
 
 		if (LoopTime <= 0.0f)
 		{
-			NetworkManager manager = GameObject.FindObjectOfType<NetworkManager>();
+			NetworkManager manager = FindObjectOfType<NetworkManager>();
 			manager.ServerChangeScene(NetworkManager.networkSceneName);
 		}
+	}
+
+	[Server]
+	public void OnAllPlayerDeath()
+	{
+		// Make the timer ending in 5s
+		TimerMultiplier = LoopTime / 5.0f;
 	}
 }
