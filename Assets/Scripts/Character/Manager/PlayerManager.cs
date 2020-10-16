@@ -35,5 +35,15 @@ public class PlayerManager : BaseCharacterManager
 	{
 		m_aPlayersAlive.Remove(player);
 		m_aPlayersDead.Add(player);
+
+		if (0 == m_aPlayersAlive.Count)
+        {
+			// No more living players, end the current loop
+			FindObjectOfType<GameManager>().OnAllPlayerDeath();
+		}
+        else
+        {
+			player.gameObject.GetComponent<PlayerController>().SetDeathCamTarget(m_aPlayersAlive[0].gameObject);
+        }
 	}
 }

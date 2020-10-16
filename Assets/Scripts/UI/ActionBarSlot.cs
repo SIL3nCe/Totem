@@ -8,18 +8,6 @@ public class ActionBarSlot : MonoBehaviour, ISelectHandler
 {
     private ActionBar m_actionBar;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SetActionBar(ActionBar actionBar)
     {
         m_actionBar = actionBar;

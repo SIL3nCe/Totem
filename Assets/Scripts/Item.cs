@@ -15,18 +15,6 @@ public class Item : MonoBehaviour
 	public ScriptableObjects.Item m_item;	//< The item data of this item
 
 	private bool m_isInInteractFrame = false;
-	
-	// Start is called before the first frame update
-	void Start()
-	{
-		
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-		
-	}
 
 	public void SetIsInInteractFrame(bool isInInteractFrame)
 	{

@@ -29,7 +29,6 @@ public class NightFall : MonoBehaviour
 
 	private Gradient m_gradient;
 	
-	
 	private bool m_executing = false;
 	private Material m_originalMaterial;
 
@@ -60,7 +59,7 @@ public class NightFall : MonoBehaviour
 	}
 
 	// Start is called before the first frame update
-	public  void Begin()
+	public void Begin()
 	{
 		//
 		// We start everything only when we are not in hard mode

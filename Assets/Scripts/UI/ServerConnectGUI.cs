@@ -30,7 +30,6 @@ public class ServerConnectGUI : MonoBehaviour
 		}
 	}
 
-
 	public void StartClient()
 	{
 		m_networkManager.networkAddress = m_inputFieldIP.text;

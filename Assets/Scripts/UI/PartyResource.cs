@@ -12,7 +12,6 @@ using UnityEngine.UI;
 
 public class PartyResource : MonoBehaviour
 {
-
 	[Tooltip("The item that will be used to display the image and name of the resource")]
 	public ScriptableObjects.Item m_item;
 	

@@ -14,12 +14,6 @@ public class InventoryCraftRequiredResource : MonoBehaviour
 
 	private Blueprint.RecipeElement m_neededElement;
 	private bool m_satisfied = false;
-	
-	// Start is called before the first frame update
-	void Start()
-	{
-		
-	}
 
 	// Update is called once per frame
 	void Update()

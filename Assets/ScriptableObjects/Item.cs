@@ -26,6 +26,29 @@ namespace ScriptableObjects
 			weapon	//< A weapon that can attack ennemies or gather resources
 		}
 
+		/// <summary>
+		/// The type of weapon/tool
+		/// </summary>
+
+		public enum WeaponType
+		{
+			sword,
+			axe,
+			pickaxe,
+			hand
+		}
+
+		/// <summary>
+		/// The type of the resource
+		/// </summary>
+
+		public enum ResourceType
+		{
+			wood,
+			stone,
+			emerald,
+		}
+
 		[Header("General")] 
 		[Tooltip("The name of the item")]
 		public string m_name;
@@ -35,6 +58,12 @@ namespace ScriptableObjects
 
 		[Tooltip("The type of this item")] 
 		public Type m_type;
+
+		[Tooltip("The weapon type of this item (if it's a weapon)")] 
+		public WeaponType m_weaponType;
+
+		[Tooltip("The resource type of this item (if it's a resource)")] 
+		public ResourceType m_resourceType;
 
 		[Tooltip("Damage if the item is a weapon")]
 		public int m_damage;

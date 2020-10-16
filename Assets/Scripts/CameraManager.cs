@@ -10,10 +10,6 @@ public class CameraManager : MonoBehaviour
     public float ZDistance = -10.0f;
     public float XRotation = 35.0f;
 
-    void Start()
-    {
-    }
-
     void Update()
     {
         if (!PlayerTarget)
