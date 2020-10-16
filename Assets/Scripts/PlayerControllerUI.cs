@@ -151,7 +151,7 @@ public class PlayerControllerUI : MonoBehaviour
 
 	public void Drop()
 	{
-		m_playerUI.DropCurrentlySelectedItem(transform.position + new Vector3(0.0f, 0.0f, 4.0f), Quaternion.Euler(0.0f, 0.0f, -180.0f));
+		m_playerUI.DropCurrentlySelectedItem(transform.position + new Vector3(0.0f, 0.0f, 4.0f), Quaternion.Euler(0.0f, -180.0f, 0.0f));
 	}
 
 	public void ResetCanCraftDirty()
